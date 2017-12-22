@@ -6,7 +6,7 @@
        "Type" : "AWS::AutoScaling::LaunchConfiguration",
        "Properties" : {
           "AssociatePublicIpAddress" : "true",
-          "ImageId" : "ami-618f831a",
+          "ImageId" : "ami-55ef662f",
           "InstanceType" : "t2.micro",
           "KeyName" : "LabEC2KeyPair",
           "SecurityGroups" : [ "sg-f7311682" ],
