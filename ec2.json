@@ -9,7 +9,14 @@
           "ImageId" : "ami-618f831a",
           "InstanceType" : "t2.micro",
           "KeyName" : "LabEC2KeyPair",
-          "SecurityGroups" : [ "sg-f7311682" ]
+          "SecurityGroups" : [ "sg-f7311682" ],
+        "UserData"       : { "Fn::Base64" : { "Fn::Join" : ["", [
+             "#!/bin/bash -xe\n",
+             "apt-get update\n",
+             "apt-get install -y httpd\n",
+             "service httpd start"
+		]]}}
+      }
         }
     },
 
@@ -24,8 +31,6 @@
           "VPCZoneIdentifier" : ["subnet-f25ce8dd"]
        }
     }
-
-
     }
   }
 
