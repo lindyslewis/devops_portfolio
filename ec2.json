@@ -9,7 +9,7 @@
           "ImageId" : "ami-618f831a",
           "InstanceType" : "t2.micro",
           "KeyName" : "LabEC2KeyPair",
-          "SecurityGroups" : [ "Ssg-f7311682" ]
+          "SecurityGroups" : [ "sg-f7311682" ]
         }
     },
 
