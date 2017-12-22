@@ -12,8 +12,8 @@
           "SecurityGroups" : [ "sg-f7311682" ],
         "UserData"       : { "Fn::Base64" : { "Fn::Join" : ["", [
              "#!/bin/bash -xe\n",
-             "apt-get update\n",
-             "apt-get install -y httpd\n",
+             "yum update\n",
+             "yum install -y httpd\n",
              "service httpd start"
 		]]}}
       }
