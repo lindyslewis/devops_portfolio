@@ -2,24 +2,31 @@
   "AWSTemplateFormatVersion" : "2010-09-09",
   "Description" : "A sample template",
   "Resources" : {
-    "MyEC2Instance" : {
-      "Type" : "AWS::EC2::Instance",
-      "Properties" : {
-        "ImageId" : "ami-618f831a",
-        "InstanceType" : "t2.micro",
-        "KeyName" : "LabEC2KeyPair",
-        "BlockDeviceMappings" : [
-          {
-            "DeviceName" : "/dev/sdm",
-            "Ebs" : {
-              "VolumeType" : "io1",
-              "Iops" : "200",
-              "DeleteOnTermination" : "false",
-              "VolumeSize" : "20"
-            }
-          }
-        ]
-      }
+    "MyLaunchConfig" :{
+       "Type" : "AWS::AutoScaling::LaunchConfiguration",
+       "Properties" : {
+          "AssociatePublicIpAddress" : "true",
+          "ImageId" : "ami-618f831a",
+          "InstanceType" : "t2.micro",
+          "KeyName" : "LabEC2KeyPair",
+          "SecurityGroups" : [ "Ssg-f7311682" ]
+    },
+
+    "MyASG" : {
+       "Type" : "AWS::AutoScaling::AutoScalingGroup",
+       "Properties" : {
+          "DesiredCapacity" : "2",
+          "HealthCheckType" : "EC2",
+          "LaunchConfigurationName" :{ "Ref" : "MyLaunchConfig" }, 
+          "MaxSize" : "2",
+          "MinSize" : "2",
+          "VPCZoneIdentifier" : ["subnet-f25ce8dd"]
+       }
     }
+
+
   }
 }
+
+
+
