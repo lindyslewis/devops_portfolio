@@ -10,6 +10,7 @@
           "InstanceType" : "t2.micro",
           "KeyName" : "LabEC2KeyPair",
           "SecurityGroups" : [ "Ssg-f7311682" ]
+        }
     },
 
     "MyASG" : {
@@ -27,7 +28,6 @@
 
     }
   }
-}
 
 
 
