@@ -1,0 +1,25 @@
+{
+  "AWSTemplateFormatVersion" : "2010-09-09",
+  "Description" : "A sample template",
+  "Resources" : {
+    "MyEC2Instance" : {
+      "Type" : "AWS::EC2::Instance",
+      "Properties" : {
+        "ImageId" : "ami-618f831a",
+        "InstanceType" : "t2.micro",
+        "KeyName" : "LabEC2KeyPair",
+        "BlockDeviceMappings" : [
+          {
+            "DeviceName" : "/dev/sdm",
+            "Ebs" : {
+              "VolumeType" : "io1",
+              "Iops" : "200",
+              "DeleteOnTermination" : "false",
+              "VolumeSize" : "20"
+            }
+          }
+        ]
+      }
+    }
+  }
+}
