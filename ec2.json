@@ -22,11 +22,11 @@
     "MyASG" : {
        "Type" : "AWS::AutoScaling::AutoScalingGroup",
        "Properties" : {
-          "DesiredCapacity" : "2",
+          "DesiredCapacity" : "1",
           "HealthCheckType" : "EC2",
           "LaunchConfigurationName" :{ "Ref" : "MyLaunchConfig" }, 
-          "MaxSize" : "2",
-          "MinSize" : "2",
+          "MaxSize" : "1",
+          "MinSize" : "1",
           "VPCZoneIdentifier" : ["subnet-f25ce8dd"]
        }
     }
